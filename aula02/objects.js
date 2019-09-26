@@ -32,4 +32,4 @@ function showProps(obj)
     }
 }
 
-showProps(sstd3)
+showProps(std3)
