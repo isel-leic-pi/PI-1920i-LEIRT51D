@@ -12,7 +12,6 @@ function getAllBundles(req, rsp) {
     function processGetAllBundles(err, bundles) {
       rsp.setHeader('Content-type', 'application/json')
       rsp.end(JSON.stringify(bundles))
-
     }
 }
 
@@ -22,7 +21,6 @@ function getBundle(req, rsp) {
     function processGetBundle(err, bundle) {
       rsp.setHeader('Content-type', 'application/json')
       rsp.end(JSON.stringify(bundle))
-
     }
 }
 

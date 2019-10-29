@@ -2,7 +2,7 @@
 
 const net = require('net')
 //const fs = require('fs')
-const fw = require('./watch_files_module')
+const fw = require('./watch_files_emitter')
 
 const server = net.createServer()
 
@@ -21,7 +21,7 @@ filesWatcherEmitter.on('change', fileChanged)
 let clients =[]
 
 server.on('connection', handleConnection)
-server.on('connection', logConnectionInfo)
+//server.on('connection', logConnectionInfo)
 
 server.on('listening', logListening)
 
@@ -31,7 +31,12 @@ console.log("Initial phase done")
 
 function handleConnection(clientSocket){
     console.log("New connection")
-    clientSocket.write("Hello\n")
+
+    let watchObj = {
+        type : "watching",
+        filesNames : files 
+    }
+    clientSocket.write(JSON.stringify(watchObj)+'\n')
     clients.push(clientSocket)
 
     clientSocket.on('data', handleData )
@@ -48,6 +53,8 @@ function handleConnection(clientSocket){
         clients = clients.filter(c => c !== clientSocket)
         console.log(clients.length)
     }
+
+    clientSocket.on('error', (err)=>console.log('error'))
 }
 
 function logListening(){
@@ -56,7 +63,14 @@ function logListening(){
 
 function fileChanged(eventI, fileName){
     console.log(eventI + " at Server : " + fileName)
-    clients.forEach(c => c.write(eventI + " : " + fileName))
+    let changeObj = {
+        type : "change",
+        eventType : eventI,
+        file : fileName
+    }
 
+    let message = JSON.stringify(changeObj)
+    clients.forEach(c => c.write(message.substring(0,5)))
+    setTimeout(()=>clients.forEach(c => c.write(message.substring(5)+'\n')), 1000)
 }
 
