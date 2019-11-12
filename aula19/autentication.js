@@ -1,6 +1,6 @@
 'use strict'
 
-//This module only serves as an example of very simplified authentication middleware
+//This module only serves as an example of an incomplete simplified authentication middleware
 
 
 module.exports = function(usersData) {

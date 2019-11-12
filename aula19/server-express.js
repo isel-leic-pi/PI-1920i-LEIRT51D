@@ -1,5 +1,7 @@
 'use strict'
 
+//This module serves as an example of using a middleware, it is not secure and the implementation is incomplete 
+
 const express = require('express')
 const app = express()
 const usersData = require('./users-data-mem')

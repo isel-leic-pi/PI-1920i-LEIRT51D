@@ -1,0 +1,15 @@
+{
+  "name": "aula08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "message-emitter-module.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^6.2.1"
+  }
+}

@@ -3,18 +3,17 @@
 const express = require('express')
 const app = express()
 
-
-app.get('/',firstMiddleware ,secondMiddleware ,rootHandler)
+app.get('/',function1 ,function2 ,rootHandler)
 
 app.listen(8080, () => console.log('Listening'))
 
-function firstMiddleware(req, res, next){
-    console.log('First Middleware')
+function function1(req, res, next){
+    console.log('First Function')
     next()
 }
 
-function secondMiddleware(req, res, next){
-    console.log('Second Middleware')
+function function2(req, res, next){
+    console.log('Second Function')
     next()
 }
 

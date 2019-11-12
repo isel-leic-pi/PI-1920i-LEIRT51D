@@ -24,7 +24,7 @@ function secondMiddleware(req, res, next){
 function sendUnauthorize(res){
     console.log('unauthorize')
     res.status(401)
-    //res.end()
+    res.end()
 }
 
 
