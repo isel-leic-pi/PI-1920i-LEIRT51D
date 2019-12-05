@@ -1,0 +1,14 @@
+
+    p {
+                background-color: red;
+                margin : 0;
+                border-style: dotted;
+            }
+
+            .classYellow{
+                background-color: yellow;
+            }
+
+            #pgreen{
+                background-color: green;
+            }

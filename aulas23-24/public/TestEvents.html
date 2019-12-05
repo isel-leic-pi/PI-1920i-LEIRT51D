@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Page Example </title>
+        <meta charset="utf-8">
+        <script type='text/ecmascript'>
+            //window.onload=function(){
+            window.addEventListener("load", function() {
+                const button = document.querySelector("#btn")
+                const heading = document.getElementById("heading1")
+                const container = document.getElementById("container")
+                //button.onclick = handleClick
+                button.addEventListener('click',handleClick)
+                document.body.addEventListener('click', captureClick, true)
+                document.body.addEventListener('click', bubblingClick, false)
+                
+
+                function handleClick(e){
+                    console.log('target')
+                    heading.innerText="CLICK"
+                    btn.innerText="CLICK ME"
+
+                    container.innerHTML = '<input type=text> <button>CLICK</button>'
+                }
+
+                function captureClick(e){
+                    console.log('capture')
+                    e.stopPropagation()
+                }
+
+                function bubblingClick(e){
+                    console.log('bubbling')
+                }
+
+
+                
+
+            } )    
+        
+        </script>
+
+    </head>
+    <body>
+        <div id= container></div>
+        <h1 id="heading1" >TEXT</h1>
+        <p>PI work</p>
+        <button id="btn"> Click </button>
+    </body>
+</html>
