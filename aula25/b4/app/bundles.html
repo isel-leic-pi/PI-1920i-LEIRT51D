@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> B4 </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src = "https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="content.js"></script>
+        <script src="bundles-data.js"></script>
+        <script src="bundles.js"></script>
+    </head>
+    <body>
+        <a href=index.html> Home </a>
+        <a href=bundles.html> Bundles </a>
+
+        <div id="bundlesContainer"> </div>
+        
+        <form id="formCreateBundle" action="/api/bundles" method="POST">
+            Name:
+            <input type="text" id="inputName" >
+            Description:
+            <input type="text" id="inputDescription">
+            <input type="submit" >
+        </form> 
+
+        
+        <p>Chelas 2019</p>
+    </body>
+</html>
