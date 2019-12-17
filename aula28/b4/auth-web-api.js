@@ -58,6 +58,7 @@ module.exports = function (global, router, authService) {
 
     function deserializeUser(userId, done) {
         console.log('deserializeUser')
+
         authService
             .getUser(userId)
             .then(user => done(null, user))
@@ -65,7 +66,7 @@ module.exports = function (global, router, authService) {
     }
 
     function sendUnauthorized(resp,err){
-        resp.status(403).json({status:"Unauthorized" , message : err})
+        resp.status(401).json({status:"Unauthorized" , message : err})
     }
 
 }
